@@ -2,14 +2,10 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from sklearn.datasets import load_wine
+from sklearn.datasets import make_classification
 from sklearn.cluster import KMeans
 
-data = load_wine()
-
-df = pd.DataFrame(data.data, columns=data.feature_names)
-
-X = df.values
+X, y = make_classification(n_samples=178, n_features=13, n_informative=13, n_redundant=0, n_classes=3, random_state=42)
 
 model = KMeans(n_clusters=3, random_state=42, n_init=10)
 
